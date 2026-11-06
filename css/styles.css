@@ -1,0 +1,81 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.pos-static,
+.pos-relative,
+.pos-absolute,
+.pos-fixed,
+.pos-sticky {
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+.box {
+    background-color: forestgreen;
+    border: 1px solid #000;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    width: 300px;
+}
+
+/* ------ pos-relative -------- */
+
+.pos-relative .box:nth-of-type(2) {
+    position: relative;
+    top: -50px;
+    left: 100px;
+}
+
+/* ------ pos-absolute ------ */
+
+/*.pos-absolute .box:first-of-type {
+    position: absolute;
+}*/
+/* adding position:relative to the parent (grey box) makes the absolute element (red box) start in this container for its positioning 
+If i dont have this property, the absolute element is positioned to the body element */
+
+.pos-absolute {
+    position: relative;
+}
+
+.pos-absolute .box:nth-of-type(2) {
+    background-color: tomato;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+
+/* We can change or overwrite this (maybe media query) 
+This sets the red box back to its default position*/
+
+.pos-absolute .box:nth-of-type(2) {
+    position: static;
+    position: unset;
+}
+
+/* ------ pos-fixed ------ */
+
+.pos-fixed .box:last-of-type {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+/* ------ pos-sticky ------- */
+
+.pos-sticky {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+/* position sticky needs sibling elements to scroll under it, therefore it also needs a background colour. 
+the top bottom left right properties is where this will stick to once it hits that position */
